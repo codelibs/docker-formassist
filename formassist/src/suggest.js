@@ -199,9 +199,6 @@ export default class {
     }
     this.suggestState.suggesting = true;
 
-    let listNum = 0;
-    let listSelNum = 0;
-
     const $this = this;
     JQ.ajax({
       url: $this.fessUrl,
@@ -221,7 +218,7 @@ export default class {
         $this._resetSuggestSts();
       }
       $this.suggestState.suggesting = false;
-    }).fail(function(a, obj, b) {
+    }).fail(function(a, obj) {
       console.log('Suggest request fail. ' + obj);
       $this._resetSuggestSts();
       $this.suggestState.suggesting = false;
@@ -311,7 +308,7 @@ export default class {
       } else {
         JQ(tr).css("background-color", "#ffffff");
       }
-    })
+    });
   }
 
   _fixList() {

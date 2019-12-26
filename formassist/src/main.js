@@ -8,9 +8,9 @@ import '!style-loader!css-loader!sass-loader!./css/form-assist.scss';
 import Controller from './controller.js';
 
 (function(){
-    const controller = new Controller();
+  const controller = new Controller();
 
-    window.onload = () => {
-        controller.start();
-    }
+  window.onload = () => {
+    controller.start();
+  };
 })();

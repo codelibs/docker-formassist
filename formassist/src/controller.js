@@ -24,7 +24,7 @@ export default class {
 
       JQ(formAssistElement).find('.fess-suggest').each((i2, suggestElement) => {
         console.log(suggestElement);
-        const suggest = new Suggest(suggestElement, assist, formAssistElement);
+        new Suggest(suggestElement, assist, formAssistElement);
       });
     });
   }
