@@ -1,0 +1,4 @@
+client_name,zip_code,address1,address2,person,phone_number,fax_number
+山田工業,111-1111,東京都,千代田区,山田太郎,03-xxxx-0000,03-xxxx-1000
+"HOGE CO., LTD.",222-2222,東京都,新宿区,John Smith,03-xxxx-0001,03-xxxx-1001
+
