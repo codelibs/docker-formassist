@@ -41,12 +41,13 @@ export default class {
 
     let resultHeaders = JQ(element).data('result_headers');
     if (resultHeaders === undefined || resultHeaders === '') {
-      resultHeaders = resultFields;
+      this.resultHeaders = [];
+    } else {
+      this.resultHeaders = resultHeaders.split(',');
     }
-    this.resultHeaders = resultHeaders.split(',');
 
     let resultsNum = JQ(element).data('results_num');
-    if (resultsNum === undefined || resultHeaders === '') {
+    if (resultsNum === undefined || resultsNum === '') {
       resultsNum = "10";
     }
     this.resultsNum = resultsNum;
@@ -243,15 +244,17 @@ export default class {
     this.suggestState.listLength = 0;
     const $this = this;
 
-    const $thead = JQ('<thead/>');
-    const $trHead = JQ('<tr/>');
-    this.resultHeaders.forEach(header => {
-      const $th = JQ('<th />');
-      $th.text(header);
-      $trHead.append($th);
-    });
-    $thead.append($trHead);
-    $table.append($thead);
+    if (this.resultHeaders.length > 0) {
+      const $thead = JQ('<thead/>');
+      const $trHead = JQ('<tr/>');
+      this.resultHeaders.forEach(header => {
+        const $th = JQ('<th />');
+        $th.text(header);
+        $trHead.append($th);
+      });
+      $thead.append($trHead);
+      $table.append($thead);
+    }
     
     const $tbody = JQ('<tbody/>');
     obj.response.result.forEach(hit => {
@@ -269,7 +272,7 @@ export default class {
       $tr.data('obj', JSON.stringify(hit));
   
       $tr.hover(() => {
-        $this.suggestState.selectedNum = JQ($tr).closest("table").children("tr").index($tr) + 1;
+        $this.suggestState.selectedNum = JQ($tr).closest("tbody").children("tr").index($tr) + 1;
         $this.suggestState.isFocusList = true;
         $this._selectList($this.suggestState.selectedNum);
       }, () => {
@@ -279,7 +282,7 @@ export default class {
       });
 
       $tr.click(() => {
-        $this.suggestState.selectedNum = JQ($tr).closest("table").children("tr").index($tr) + 1;
+        $this.suggestState.selectedNum = JQ($tr).closest("tbody").children("tr").index($tr) + 1;
         $this._fixList();
       });
 
@@ -302,7 +305,7 @@ export default class {
   }
 
   _selectList(selectedNum) {
-    JQ(this.$boxElement).find("tr").each((i, tr) => {
+    JQ(this.$boxElement).find("tbody tr").each((i, tr) => {
       if (i === selectedNum - 1) {
         JQ(tr).css("background-color", "#e5e5e5");
       } else {
@@ -313,7 +316,7 @@ export default class {
 
   _fixList() {
     if (this.suggestState.selectedNum > 0) {
-      const tr = JQ(this.$boxElement).find("tr")[this.suggestState.selectedNum - 1];
+      const tr = JQ(this.$boxElement).find("tbody tr")[this.suggestState.selectedNum - 1];
       const objStr = JQ(tr).data('obj');
       this.FormAssist.apply(JSON.parse(objStr), this.assistTargets);
     }
