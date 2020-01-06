@@ -1,9 +1,0 @@
-version: '3.1'
-
-services:
-  formassist:
-    build:
-      context: ./formassist
-    restart: always
-    volumes:
-      - ./data/formassist/:/app/formassist/output
