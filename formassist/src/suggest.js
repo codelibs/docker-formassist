@@ -91,7 +91,7 @@ export default class {
         if ($this.$boxElement.css("display") !== "none") {
           e.preventDefault();
         }
-        $this.suggestState.selectedNum = $this.suggestState.selectedNum - 1;
+        $this.suggestState.selectedNum--;
         if ($this.suggestState.selectedNum == -1) {
           $this.suggestState.selectedNum = $this.suggestState.listLength;
         }
@@ -102,10 +102,11 @@ export default class {
         if ($this.$boxElement.css("display") === "none") {
           $this._suggest();
         } else {
-          $this.suggestState.selectedNum = $this.suggestState.selectedNum + 1;
-          if ($this.suggestState.selectedNum - 1 > $this.suggestState.listLength) {
+          $this.suggestState.selectedNum++;
+          if ($this.suggestState.selectedNum - 1 >= $this.suggestState.listLength) {
             $this.suggestState.selectedNum = 0;
           }
+          
           $this.suggestState.isFocusList = true;
           $this._selectList($this.suggestState.selectedNum);
         }
