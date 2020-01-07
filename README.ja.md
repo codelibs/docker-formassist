@@ -11,7 +11,7 @@ This docker environment provides Form Assist Script on Fess.
 ```
 $ git clone https://github.com/codelibs/docker-formassist.git
 $ cd docker-formassist
-$ bash setup.sh
+$ bash ./bin/setup.sh
 ```
 
 ### Start Server
