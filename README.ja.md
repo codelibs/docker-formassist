@@ -88,7 +88,7 @@ fess-form-assist.jsをロードします。
 
 ```
 <div class="fess-form-assist">
-    <input type="text" class="fess-suggest"
+    <input type="text" class="fess-suggest fess-assist"
         data-fess_url="http://localhost:10080/json"
         data-field="name_assist"
         data-results_num="3"
