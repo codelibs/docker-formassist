@@ -47,6 +47,7 @@ fess-form-assist.jsをロードします。
 ## Usage
 
 サジェスト/アシスト対象のform群を `fess-form-assist` クラスでラップします。 
+
 ```
 <div class="fess-form-assist">
 ...
@@ -103,3 +104,41 @@ fess-form-assist.jsをロードします。
  |属性|説明|
 |---|---|
 |data-field|アシスト対象のフィールド名を設定します。|
+
+
+## サジェストのデザイン
+
+ `fess-form-assist` クラスの要素に対して `apply-style` クラスを追加することで、サジェストボックスに対してデフォルトのCSSが適用されます。
+
+```
+<div class="fess-form-assist apply-style">
+...
+</div>
+```
+
+サジェストのボックス要素は以下の構成になるため、これらの要素に対してスタイルを設定することで `apply-style` を使用せずに独自のCSSを適用出来ます。
+
+```
+<div class="fess-form-assist">
+    <div class="fess-suggest-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Field1</th>
+                    <th>Field2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Value1</td>
+                    <td>Value2</td>
+                </tr>
+                <tr>
+                    <td>Value3</td>
+                    <td>Value4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+```
