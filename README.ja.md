@@ -75,6 +75,7 @@ fess-form-assist.jsをロードします。
 |属性|説明|
 |---|---|
 |data-fess_url|FessのJSON APIのURLを設定します。|
+|data-label|検索対象のlabelを設定します。|
 |data-field|サジェスト対象のフィールド名を設定します。|
 |data-results_num|サジェスト結果の表示数を設定します。|
 |data-results|サジェスト結果に表示するフィールドを設定します。（複数ある場合はカンマ区切り）|

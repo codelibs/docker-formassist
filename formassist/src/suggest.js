@@ -27,6 +27,11 @@ export default class {
       return;
     }
 
+    this.label = JQ(element).data('label');
+    if (this.label === undefined) {
+      this.label = '';
+    }
+
     this.suggestField = JQ(element).data('field');
     if (this.suggestField === undefined || this.suggestField === '') {
       console.log('Suggest field is empry. ' + element);
@@ -208,7 +213,8 @@ export default class {
       cache: false,
       data: {
         q: $this.suggestField + ':' + $this.suggestState.inputText + '*',
-        num: $this.resultsNum
+        num: $this.resultsNum,
+        'fields.label': $this.label
       },
       traditional: true
     }).done(function(obj) {
