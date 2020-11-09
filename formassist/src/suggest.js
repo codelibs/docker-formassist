@@ -110,7 +110,6 @@ export default class {
           $this.suggestState.isFocusList = true;
           $this._selectList($this.suggestState.selectedNum);
         }
-
       } else if (e.keyCode === 13) {
         if ($this.suggestState.isFocusList) {
           this._fixList();
