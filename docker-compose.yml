@@ -42,7 +42,7 @@ services:
       - ./data/fess/var/log/fess:/var/log/fess
 
   es01:
-    image: codelibs/fess-elasticsearch:7.4.2
+    image: ghcr.io/codelibs/fess-elasticsearch:7.4.2
     container_name: es01
     restart: always
     environment:
